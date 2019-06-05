@@ -12,7 +12,8 @@ class DashBoardActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.dashboard_activity)
         setSupportActionBar(toolbar)
-
+        val actionBar= supportActionBar
+        //actionBar!!.title="DashBoard"
     }
 
 }
