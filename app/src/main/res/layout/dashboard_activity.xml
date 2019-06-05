@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <com.google.android.material.circularreveal.cardview.CircularRevealCardView
+        android:id="@+id/register_patient"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        app:cardCornerRadius="75dp"
+        android:elevation="6dp"
+        android:padding="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.499">
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="72dp"
+            android:layout_height="76dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp"
+            app:srcCompat="@drawable/ic_account_circle_black_24dp" />
+
+        <TextView
+            android:layout_width="95dp"
+            android:layout_height="47dp"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginBottom="18dp"
+            android:gravity="center"
+            android:text="@string/register_patient"
+            android:textColor="@color/nigeria_green"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:typeface="serif" />
+
+    </com.google.android.material.circularreveal.cardview.CircularRevealCardView>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+
