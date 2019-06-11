@@ -6,4 +6,5 @@
     <string name="tag_line">consult a doctor now</string>
     <string name="OpenMRS_credit">powered by OpenMRS</string>
     <string name="register_patient">Register Patient</string>
+    <string name="title_activity_splash_screen">SplashScreen</string>
 </resources>
