@@ -2,6 +2,7 @@ package com.example.nigeriatelemedicineapp.api
 
 import com.example.nigeriatelemedicineapp.api.services.GetIdentifierService
 import com.example.nigeriatelemedicineapp.api.services.RegisterPatientService
+import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.create
@@ -22,9 +23,12 @@ class ApiManager {
 
     fun createService()
     {
+        val OkHttpClient= OkHttpInterceptor().getClient("admin","Admin123")
+
         retrofit = Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
+            .client(OkHttpClient)
             .build()
 
         setUpServices()
@@ -45,6 +49,11 @@ class ApiManager {
     fun getIdentifierApi() : GetIdentifierService?
     {
         return identifierApi
+    }
+
+    fun getRegisterPatientApi() : RegisterPatientService?
+    {
+        return patientApi
     }
 
 
