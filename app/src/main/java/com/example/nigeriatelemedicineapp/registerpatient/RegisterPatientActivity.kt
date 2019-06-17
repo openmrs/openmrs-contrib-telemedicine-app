@@ -6,6 +6,7 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import com.example.nigeriatelemedicineapp.R
 import com.example.nigeriatelemedicineapp.databinding.ActivityAppointmentFormBinding
 
 
@@ -26,7 +27,7 @@ class RegisterPatientActivity : AppCompatActivity() {
 
     private fun setUpObservers() {
         val nameObserver = Observer<String> { newName ->
-            Toast.makeText(this, " $newName ", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, " $newName ", Toast.LENGTH_LONG).show()
         }
 
         viewModel.responseString.observe(this, nameObserver)
@@ -42,7 +43,7 @@ class RegisterPatientActivity : AppCompatActivity() {
     fun setUpUI() {
         setSupportActionBar(binding.toolbar)
         val actionBar = supportActionBar
-        actionBar!!.title = "Appointment Form"
+        actionBar!!.title = getString(R.string.appointmentFormheading)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowHomeEnabled(true)
 

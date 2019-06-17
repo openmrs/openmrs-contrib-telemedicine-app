@@ -9,11 +9,6 @@ import retrofit2.http.POST
 
 interface RegisterPatientService{
 
-    @Headers(
-        "accept: application/json",
-        "content-type: application/json"
-        //"authorization: Basic YWRtaW46QWRtaW4xMjM="
-    )
     @POST(ApiEndpoints.PATIENT)
     fun registerPatient(@Body patient: Patient): Call<Patient>
 }

@@ -2,7 +2,6 @@ package com.example.nigeriatelemedicineapp.api.models
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
-import java.util.ArrayList
 
 class Patient {
 
@@ -21,6 +20,7 @@ class Patient {
     @SerializedName("identifiers")
     @Expose
     var identifiers: List<Identifier>? = null
+
     @SerializedName("person")
     @Expose
     var person: Person? = null

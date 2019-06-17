@@ -1,8 +1,8 @@
 package com.example.nigeriatelemedicineapp.api
 
-class BaseUrl{
-    val PROTOCOL_HTTPS = "https://"
+class BaseUrl {
 
+    val PROTOCOL_HTTPS = "https://"
     val HOST = "openmrs-staging.callnigeriandoc.com"
     val API_PATH = "/openmrs/ws/rest/v1/"
 
