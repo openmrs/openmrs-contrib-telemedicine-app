@@ -1,6 +1,5 @@
 package com.example.nigeriatelemedicineapp.registerpatient
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.nigeriatelemedicineapp.api.ApiManager
@@ -9,11 +8,12 @@ import com.example.nigeriatelemedicineapp.repository.Repository
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import timber.log.Timber
 
 class RegisterPatientViewModel : ViewModel() {
 
      var repository: Repository
-    // Create a LiveData with a String
+
     val identifier: MutableLiveData<String> by lazy {
         MutableLiveData<String>()
     }
@@ -57,7 +57,7 @@ class RegisterPatientViewModel : ViewModel() {
         val identifier= Identifier()
         identifier.identifier=Uuid
 
-        Log.d("helaaa","Creating patient with ${identifier.identifier} and name ${name.givenName} ${name.familyName}")
+        Timber.d("Creating patient with ${identifier.identifier} and name ${name.givenName} ${name.familyName}")
 
         val patient= Patient()
         patient.identifiers= listOf(identifier)
@@ -68,18 +68,21 @@ class RegisterPatientViewModel : ViewModel() {
     }
 
     private fun syncPatient(patient: Patient) {
-          repository.registerPatient(patient)?.enqueue(object : Callback<String?>{
-              override fun onFailure(call: Call<String?>, t: Throwable) {
+          repository.registerPatient(patient)?.enqueue(object : Callback<Patient>{
+              override fun onFailure(call: Call<Patient>, t: Throwable) {
+
                  responseString.postValue("Patient Was not Created")
+                  Timber.d(" t.localised message-----${t.localizedMessage} ")
+                  Timber.d(" t.message-----${t.message} ")
               }
 
-              override fun onResponse(call: Call<String?>, response: Response<String?>) {
+              override fun onResponse(call: Call<Patient>, response: Response<Patient>) {
                    if(response.code()==201)
                    {
-                       responseString.postValue("Patient Was Created with Code 201")
+                       responseString.postValue("Patient Was Created with Code ${response.code()}")
+                       Timber.d("Patient registration successful")
                    }
                   else{
-                       response.body()
                        responseString.postValue("Patient Was not Created with code ${response.code()} code ")
                    }
 

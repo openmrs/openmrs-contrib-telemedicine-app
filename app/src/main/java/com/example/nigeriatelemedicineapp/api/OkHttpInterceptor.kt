@@ -27,8 +27,6 @@ class OkHttpInterceptor {
                 val request = requestBuilder.build()
                 chain.proceed(request)
             }
-            //val logging = HttpLoggingInterceptor()
-            //logging.level = HttpLoggingInterceptor.Level.BODY
             val loggingInterceptor = HttpLoggingInterceptor()
             loggingInterceptor.level=HttpLoggingInterceptor.Level.BODY
             httpClient.addInterceptor(loggingInterceptor)

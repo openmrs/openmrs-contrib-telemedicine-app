@@ -17,7 +17,7 @@ class Repository(apiManager: ApiManager ){
         return apiManagerInstance.getIdentifierApi()?.getIdentifier()
     }
 
-    fun registerPatient(patient: Patient) : Call<String?>?
+    fun registerPatient(patient: Patient) : Call<Patient>?
     {
         return apiManagerInstance.getRegisterPatientApi()?.registerPatient(patient)
     }

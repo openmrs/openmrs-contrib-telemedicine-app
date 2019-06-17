@@ -1,5 +1,6 @@
 package com.example.nigeriatelemedicineapp.api.services
 
+import com.example.nigeriatelemedicineapp.api.ApiEndpoints
 import com.example.nigeriatelemedicineapp.api.models.Patient
 import retrofit2.Call
 import retrofit2.http.Body
@@ -13,6 +14,6 @@ interface RegisterPatientService{
         "content-type: application/json"
         //"authorization: Basic YWRtaW46QWRtaW4xMjM="
     )
-    @POST("patient")
-    fun registerPatient(@Body patient: Patient): Call<String?>
+    @POST(ApiEndpoints.PATIENT)
+    fun registerPatient(@Body patient: Patient): Call<Patient>
 }
