@@ -2,49 +2,60 @@ package com.example.nigeriatelemedicineapp.registerpatient
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.nigeriatelemedicineapp.R
-import com.example.nigeriatelemedicineapp.api.models.Identifier
 import com.example.nigeriatelemedicineapp.databinding.ActivityAppointmentFormBinding
-import kotlinx.android.synthetic.main.activity_appointment_form.*
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+
 
 class RegisterPatientActivity : AppCompatActivity() {
 
-    private lateinit var  viewModel : RegisterPatientViewModel
+    private lateinit var viewModel: RegisterPatientViewModel
     private lateinit var binding: ActivityAppointmentFormBinding
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this,R.layout.activity_appointment_form)
-        setSupportActionBar(toolbar)
+        binding =
+            DataBindingUtil.setContentView(this, com.example.nigeriatelemedicineapp.R.layout.activity_appointment_form)
+        viewModel = ViewModelProviders.of(this).get(RegisterPatientViewModel::class.java)
+        setUpUI()
+        setUpObservers()
+    }
+
+    private fun setUpObservers() {
+        val nameObserver = Observer<String> { newName ->
+            Toast.makeText(this, " $newName ", Toast.LENGTH_LONG).show()
+        }
+
+        viewModel.responseString.observe(this, nameObserver)
+
+        val idfObv = Observer<String> { idf ->
+            Toast.makeText(this, "Successfully Fetched identifier : $idf ", Toast.LENGTH_SHORT).show()
+        }
+
+        viewModel.identifier.observe(this, idfObv)
+
+    }
+
+    fun setUpUI() {
+        setSupportActionBar(binding.toolbar)
         val actionBar = supportActionBar
-        actionBar!!.title = "Appointment Form"
+        actionBar!!.title = getString(R.string.appointmentFormheading)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowHomeEnabled(true)
-        viewModel= ViewModelProviders.of(this).get(RegisterPatientViewModel::class.java)
-        binding.register.setOnClickListener{getresponseCode(it)}
+
+        binding.register.setOnClickListener { Register() }
+
     }
 
-    private fun getresponseCode(it: View?) {
-        viewModel.repository.getIdentifier()?.enqueue(object : Callback<Identifier> {
-            override fun onResponse(call: Call<Identifier>, response: Response<Identifier>) {
-                if (response.code() == 200) {
-
-                    val s=response.body()?.getUuid()
-                    Toast.makeText(applicationContext, "Response 200 :  $s ",Toast.LENGTH_SHORT).show()
-                }
-            }
-            override fun onFailure(call: Call<Identifier>, t: Throwable) {
-                Toast.makeText(applicationContext, "Failed",Toast.LENGTH_SHORT).show()
-
-            }
-        })
+    private fun Register() {
+        viewModel.registerPatient(
+            binding.firstName.text.toString(),
+            binding.lastName.text.toString()
+        )
     }
+
 }

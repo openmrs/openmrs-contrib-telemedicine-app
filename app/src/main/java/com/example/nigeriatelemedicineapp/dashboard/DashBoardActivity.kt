@@ -21,7 +21,7 @@ class DashBoardActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.dashboard_activity)
         setSupportActionBar(toolbar)
         val actionBar= supportActionBar
-        actionBar!!.title="dashboard"
+        actionBar!!.title=getString(R.string.dashboard_actionbar)
         viewModel= ViewModelProviders.of(this).get(DashBoardViewModel::class.java)
         setupUI()
     }

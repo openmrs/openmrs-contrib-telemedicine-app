@@ -109,7 +109,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Last Name"
-                        android:textColorHint="@color/nigeria_green" />
+                        android:textColor="@color/nigeria_green" />
                 </com.google.android.material.textfield.TextInputLayout>
 
             </LinearLayout>
