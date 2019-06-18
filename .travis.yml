@@ -1,9 +1,8 @@
 language: android
-dist: trusty
 android:
   components:
     - build-tools-28.0.3
     - android-28
 
     # In case we need an emulator later
-    - sys-img-x86-android-28
+    #- sys-img-x86-android-28
