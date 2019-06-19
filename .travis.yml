@@ -22,8 +22,8 @@ android:
 #    - extra-android-m2repository
 #    - addon-google_apis-google-$ANDROID_API_LEVEL
 
-before_script:
-  - yes | sdkmanager --licenses && yes | sdkmanager --update
+before_install:
+  - yes | sdkmanager "platforms;android-28"
 
 script:
   - ./gradlew build check
