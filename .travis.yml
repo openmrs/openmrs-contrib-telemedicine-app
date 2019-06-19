@@ -4,7 +4,7 @@ dist: trusty
 
 env:
   global:
-    - ANDROID_API_LEVEL=25
+    - ANDROID_API_LEVEL=28
     - ANDROID_BUILD_TOOLS_VERSION=28.0.3
 
 android:
@@ -17,13 +17,10 @@ android:
     - platform-tools
     - build-tools-$ANDROID_BUILD_TOOLS_VERSION
     - android-$ANDROID_API_LEVEL
-#    - extra-google-google_play_services
-#    - extra-google-m2repository
-#    - extra-android-m2repository
-#    - addon-google_apis-google-$ANDROID_API_LEVEL
+
 
 before_install:
-  - yes | sdkmanager "platforms;android-28"
+  - yes | sdkmanager "platforms;android-$ANDROID_API_LEVEL"
 
 script:
   - ./gradlew build check
