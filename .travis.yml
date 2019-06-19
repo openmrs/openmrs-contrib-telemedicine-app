@@ -24,3 +24,14 @@ before_install:
 
 script:
   - ./gradlew build check
+
+# Caching implemented as per Travis CI Docs
+# https://docs.travis-ci.com/user/languages/android/#caching
+before_cache:
+  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+cache:
+  directories:
+    - $HOME/.gradle/caches/
+    - $HOME/.gradle/wrapper/
+    - $HOME/.android/build-cache
