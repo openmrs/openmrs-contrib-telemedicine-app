@@ -23,7 +23,7 @@ before_install:
   - yes | sdkmanager "platforms;android-$ANDROID_API_LEVEL"
 
 script:
-  - ./gradlew build check
+  - ./build.sh
 
 # Caching implemented as per Travis CI Docs
 # https://docs.travis-ci.com/user/languages/android/#caching
