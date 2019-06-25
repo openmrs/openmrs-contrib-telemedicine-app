@@ -2,6 +2,9 @@
 
 # Nigeria Telemedicine App
 
+[![Build Status](https://travis-ci.org/openmrs/openmrs-contrib-telemedicine-app.svg?branch=dev)](https://travis-ci.org/openmrs/openmrs-contrib-telemedicine-app)
+
+
 The Nigeria Telemedicine App is light weight, easy to use telemedicine mobile app developed to make health services more 
 accessible to the Nigerian population. Users can register themselves on the app providing basic details like their
 name ,phone-number and optionally a small description of their ailment. All this can be done within a minute as there is 

@@ -1,0 +1,37 @@
+language: android
+jdk: oraclejdk8
+dist: trusty
+
+env:
+  global:
+    - ANDROID_API_LEVEL=28
+    - ANDROID_BUILD_TOOLS_VERSION=28.0.3
+
+android:
+  licenses:
+    - 'android-sdk-preview-license-.+'
+    - 'android-sdk-license-.+'
+    - 'google-gdk-license-.+'
+  components:
+    - tools
+    - platform-tools
+    - build-tools-$ANDROID_BUILD_TOOLS_VERSION
+    - android-$ANDROID_API_LEVEL
+
+
+before_install:
+  - yes | sdkmanager "platforms;android-$ANDROID_API_LEVEL"
+
+script:
+  - ./build.sh
+
+# Caching implemented as per Travis CI Docs
+# https://docs.travis-ci.com/user/languages/android/#caching
+before_cache:
+  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+cache:
+  directories:
+    - $HOME/.gradle/caches/
+    - $HOME/.gradle/wrapper/
+    - $HOME/.android/build-cache
