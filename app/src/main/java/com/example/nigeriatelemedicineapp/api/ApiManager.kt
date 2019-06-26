@@ -33,7 +33,6 @@ class ApiManager {
 
         setUpServices()
 
-
     }
 
     private fun setUpServices() {
@@ -45,7 +44,6 @@ class ApiManager {
         return retrofit?.create(clazz)
     }
 
-
     fun getIdentifierApi(): GetIdentifierService? {
         return identifierApi
     }
@@ -53,6 +51,4 @@ class ApiManager {
     fun getRegisterPatientApi(): RegisterPatientService? {
         return patientApi
     }
-
-
 }

@@ -5,12 +5,13 @@ import androidx.lifecycle.ViewModel
 import com.example.nigeriatelemedicineapp.api.ApiManager
 import com.example.nigeriatelemedicineapp.api.models.*
 import com.example.nigeriatelemedicineapp.repository.Repository
+import com.example.nigeriatelemedicineapp.utils.StringUtils
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import timber.log.Timber
 
-class RegisterPatientViewModel : ViewModel() {
+class RegisterPatientViewModel(_repository: Repository = Repository(ApiManager())) : ViewModel() {
 
      var repository: Repository
 
@@ -23,12 +24,13 @@ class RegisterPatientViewModel : ViewModel() {
     }
 
     init {
-        repository= Repository(ApiManager())
+         repository=_repository
     }
 
     fun registerPatient(firstname : String, lastname: String)
     {
-        getIdentifier(firstname,lastname)
+        if(StringUtils.notNull(firstname) && !StringUtils.isBlank(firstname))
+           getIdentifier(firstname,lastname)
     }
 
     private fun getIdentifier(firstname : String, lastname: String) {
