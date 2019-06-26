@@ -1,4 +1,12 @@
 <resources>
     <string name="app_name">Nigeria Telemedicine App</string>
     <string name="action_settings">Settings</string>
+    <string name="nigeria">NIGERIA</string>
+    <string name="telemedicine">TELEMEDICINE</string>
+    <string name="tag_line">consult a doctor now</string>
+    <string name="OpenMRS_credit">powered by OpenMRS</string>
+    <string name="register_patient">Register Patient</string>
+    <string name="title_activity_splash_screen">SplashScreen</string>
+    <string name="appointmentFormheading">Appointment Form</string>
+    <string name="dashboard_actionbar">Dashboard</string>
 </resources>
