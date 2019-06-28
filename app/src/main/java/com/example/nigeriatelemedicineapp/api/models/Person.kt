@@ -29,5 +29,7 @@ class Person {
     @SerializedName("names")
     @Expose
     var names: List<Name>? = null
-
+    @SerializedName("attributes")
+    @Expose
+    var attributes: List<Attribute>? = null
 }

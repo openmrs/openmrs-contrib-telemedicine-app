@@ -2,6 +2,8 @@ package com.example.nigeriatelemedicineapp.registerpatient
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.widget.RadioGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
@@ -46,15 +48,26 @@ class RegisterPatientActivity : AppCompatActivity() {
         actionBar!!.title = getString(R.string.appointmentFormheading)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowHomeEnabled(true)
-
         binding.register.setOnClickListener { Register() }
 
     }
 
     private fun Register() {
+
+        var gender : String? = null
+        val radioGroup=findViewById<RadioGroup>(binding.gender.id)
+
+        if(radioGroup.checkedRadioButtonId==binding.male.id)
+            gender="M"
+        else if (radioGroup.checkedRadioButtonId==binding.female.id)
+            gender="F"
+
         viewModel.registerPatient(
             binding.firstName.text.toString(),
-            binding.lastName.text.toString()
+            binding.lastName.text.toString(),
+            binding.DOB.text.toString(),
+            gender.toString(),
+            binding.phoneNumber.text.toString()
         )
     }
 
