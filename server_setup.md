@@ -1,9 +1,7 @@
 # Server Setup for creating a low privilege user
 #### Aim is to create such a user role that has the minimum privileges required to create a patient via an API call only.
 Please follow the steps listed below in order
-1. Log in to the server as an Admin.
-   * **username : admin**
-   * **password : Admin123**
+1. Log in to the server as a user with administrative permissions.
 2. Go to System Adimistration -> Advanced Administartion.
 3. Under the Users section open Manage Roles -> Add Role.
 4. A form appears which asks for the following entries. Fill them with the provided values <br>
