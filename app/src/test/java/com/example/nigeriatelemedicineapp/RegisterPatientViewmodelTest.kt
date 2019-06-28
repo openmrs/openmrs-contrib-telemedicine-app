@@ -26,7 +26,7 @@ class RegisterPatientViewModelTest {
 
     @Test
     fun shouldNotRegisterPatient_when_firstnameIsNull() {
-        viewModel.registerPatient(SPACE_STRING, EMPTY_STRING)
+        viewModel.registerPatient(SPACE_STRING, EMPTY_STRING,"2007-12-3","M","test")
         verify(exactly =0){
             repo.getIdentifier()
         }
@@ -34,7 +34,7 @@ class RegisterPatientViewModelTest {
 
     @Test
     fun shouldRegisterPatient_when_firstnameIsNotNull() {
-        viewModel.registerPatient("test",EMPTY_STRING)
+        viewModel.registerPatient("test",EMPTY_STRING,"2007-12-3","M","test")
         verify(exactly =1){
             repo.getIdentifier()
         }
