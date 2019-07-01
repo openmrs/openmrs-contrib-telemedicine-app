@@ -2,17 +2,16 @@ package com.example.nigeriatelemedicineapp.api
 
 import com.example.nigeriatelemedicineapp.api.services.GetIdentifierService
 import com.example.nigeriatelemedicineapp.api.services.RegisterPatientService
-import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.create
+
 
 class ApiManager {
 
     private val baseUrl = BaseUrl()
     private val BASE_URL = baseUrl.getUrl()
-    private val username: String = "admin"
-    private val password: String = "Admin123"
+    private val username: String = "telemedtest3"
+    private val password: String = "Asdfg123"
     private var retrofit: Retrofit? = null
     private var patientApi: RegisterPatientService? = null
     private var identifierApi: GetIdentifierService? = null
@@ -33,7 +32,6 @@ class ApiManager {
 
         setUpServices()
 
-
     }
 
     private fun setUpServices() {
@@ -45,7 +43,6 @@ class ApiManager {
         return retrofit?.create(clazz)
     }
 
-
     fun getIdentifierApi(): GetIdentifierService? {
         return identifierApi
     }
@@ -53,6 +50,4 @@ class ApiManager {
     fun getRegisterPatientApi(): RegisterPatientService? {
         return patientApi
     }
-
-
 }

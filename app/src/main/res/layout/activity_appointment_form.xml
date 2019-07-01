@@ -54,6 +54,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="10dp"
+            android:padding="10dp"
             android:layout_marginRight="10dp"
             app:cardCornerRadius="50dp"
             android:layout_marginBottom="8dp"
@@ -64,9 +65,15 @@
             app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
             app:layout_constraintVertical_bias="0.32999998">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="6dp"
+            android:orientation="vertical"
+            >
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:padding="4dp">
 
@@ -113,6 +120,77 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
             </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <RadioGroup
+                android:id="@+id/gender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="6dp"
+                android:background="@drawable/radio_button_border"
+                android:layout_marginTop="18dp"
+                android:layout_marginRight="10dp"
+                android:orientation="horizontal"
+                >
+                <RadioButton
+                    android:id="@+id/male"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Male"
+                    android:textColor="@color/nigeria_green"
+                    android:shadowColor="@color/nigeria_green"
+                    />
+
+                <RadioButton
+                    android:id="@+id/female"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Female"
+                    android:textColor="@color/nigeria_green"
+                    android:shadowColor="@color/nigeria_green"
+                    />
+            </RadioGroup>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:padding="4dp"
+                android:layout_weight="1"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/DOB"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="DOB (yyyy-mm-dd)"
+                    android:textColor="@color/nigeria_green" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:padding="4dp"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/phone_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Phone number"
+                    android:textColor="@color/nigeria_green" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
 
             <Button
                 android:id="@+id/register"
