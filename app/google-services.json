@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "539717710097",
+    "firebase_url": "https://openmrs-contrib-telemedicine.firebaseio.com",
+    "project_id": "openmrs-contrib-telemedicine",
+    "storage_bucket": "openmrs-contrib-telemedicine.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:539717710097:android:3fe7efe07edeaddf",
+        "android_client_info": {
+          "package_name": "com.example.nigeriatelemedicineapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "539717710097-514jmmhfr47hl7oanigla6l1f90j30o8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBaWSSO2eE19dwXcixMgjzV3ShkXwquRSc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "539717710097-514jmmhfr47hl7oanigla6l1f90j30o8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

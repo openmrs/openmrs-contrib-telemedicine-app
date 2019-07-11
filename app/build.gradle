@@ -14,7 +14,7 @@ android {
     }
     defaultConfig {
         applicationId "com.example.nigeriatelemedicineapp"
-        minSdkVersion 14
+        minSdkVersion 16
         android.defaultConfig.vectorDrawables.useSupportLibrary = true
         targetSdkVersion 28
         versionCode 1
@@ -55,6 +55,8 @@ dependencies {
     //okHttp3
     implementation 'com.squareup.okhttp3:logging-interceptor:3.4.1'
     implementation 'com.squareup.okhttp3:okhttp:3.4.1'
+    //firebase
+    implementation 'com.google.firebase:firebase-core:17.0.0'
 
     //timber
     implementation 'com.jakewharton.timber:timber:4.7.1'
@@ -64,3 +66,4 @@ dependencies {
             'androidx.arch.core:core-testing:2.0.1'
     )
 }
+apply plugin: 'com.google.gms.google-services'
