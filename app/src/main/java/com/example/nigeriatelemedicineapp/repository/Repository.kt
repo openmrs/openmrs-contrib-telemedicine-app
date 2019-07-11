@@ -14,7 +14,7 @@ public class Repository(apiManager: ApiManager){
 
     fun getIdentifier() : Call<IdentifierList>?
     {
-        return apiManagerInstance.getIdentifierApi()?.getIdentifier()
+        return apiManagerInstance.getsIdentifierApi()?.getIdentifier()
     }
 
     fun registerPatient(patient: Patient) : Call<Patient>?
