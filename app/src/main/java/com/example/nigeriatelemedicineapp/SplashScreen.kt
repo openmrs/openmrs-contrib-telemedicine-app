@@ -14,6 +14,6 @@ class SplashScreen : AppCompatActivity() {
         Handler().postDelayed({
             startActivity(Intent(this, DashBoardActivity::class.java))
             finish()
-        },10000)
+        },1000)
     }
 }
