@@ -3,12 +3,16 @@ package com.example.nigeriatelemedicineapp.dashboard
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.view.ViewGroup
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProviders
+import com.crashlytics.android.Crashlytics
 import com.example.nigeriatelemedicineapp.registerpatient.RegisterPatientActivity
 import com.example.nigeriatelemedicineapp.R
 import com.example.nigeriatelemedicineapp.databinding.DashboardActivityBinding
+import io.fabric.sdk.android.Fabric
 import kotlinx.android.synthetic.main.dashboard_activity.*
 
 class DashBoardActivity : AppCompatActivity() {
@@ -20,9 +24,9 @@ class DashBoardActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.dashboard_activity)
         setSupportActionBar(toolbar)
-        val actionBar= supportActionBar
-        actionBar!!.title=getString(R.string.dashboard_actionbar)
-        viewModel= ViewModelProviders.of(this).get(DashBoardViewModel::class.java)
+        val actionBar = supportActionBar
+        actionBar!!.title = getString(R.string.dashboard_actionbar)
+        viewModel = ViewModelProviders.of(this).get(DashBoardViewModel::class.java)
         setupUI()
     }
 
