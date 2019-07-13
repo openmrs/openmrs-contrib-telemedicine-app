@@ -26,6 +26,7 @@
         </activity>
         <activity
             android:name=".registerpatient.RegisterPatientActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
             android:parentActivityName=".dashboard.DashBoardActivity"
             />
