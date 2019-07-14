@@ -9,4 +9,8 @@
     <string name="title_activity_splash_screen">SplashScreen</string>
     <string name="appointmentFormheading">Appointment Form</string>
     <string name="dashboard_actionbar">Dashboard</string>
+    <string name="loadingScreenText">Registration in progress</string>
+    <string name="SuccessDialogText">You have been successfully registered.
+        We will try to call you as early as possible</string>
+    <string name="FailureDialogText">Registration unsuccessful</string>
 </resources>

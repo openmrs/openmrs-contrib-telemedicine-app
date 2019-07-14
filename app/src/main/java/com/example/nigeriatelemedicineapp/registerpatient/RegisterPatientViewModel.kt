@@ -1,5 +1,6 @@
 package com.example.nigeriatelemedicineapp.registerpatient
 
+import android.app.AlertDialog
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.nigeriatelemedicineapp.api.ApiManager
@@ -21,16 +22,12 @@ class RegisterPatientViewModel(_repository: Repository = Repository(ApiManager()
 
     var repository: Repository
 
-    val identifier: MutableLiveData<String> by lazy {
-        MutableLiveData<String>()
-    }
-
     val status: MutableLiveData<Status> by lazy {
         MutableLiveData<Status>()
     }
 
-    val responseString: MutableLiveData<String> by lazy {
-        MutableLiveData<String>()
+    val dialog: MutableLiveData<Boolean> by lazy {
+        MutableLiveData<Boolean>()
     }
 
     init {
@@ -56,7 +53,6 @@ class RegisterPatientViewModel(_repository: Repository = Repository(ApiManager()
     }
 
     fun registerPatient(firstname: String, lastname: String, dob: String, gender: String, phone: String) {
-        if (StringUtils.notNull(firstname) && !StringUtils.isBlank(firstname))
             getIdentifier(firstname, lastname, dob, gender, phone)
     }
 
@@ -65,13 +61,12 @@ class RegisterPatientViewModel(_repository: Repository = Repository(ApiManager()
             override fun onResponse(call: Call<IdentifierList>, response: Response<IdentifierList>) {
                 if (response.code() == 200) {
                     val Uuid = response.body()?.getUuid()
-                    identifier.postValue(Uuid)
                     createPatient(Uuid, firstname, lastname, dob, gender, phone)
                 }
             }
 
             override fun onFailure(call: Call<IdentifierList>, t: Throwable) {
-                identifier.postValue("Error fetching Identifier")
+                dialog.postValue(false)
             }
         })
     }
@@ -83,7 +78,8 @@ class RegisterPatientViewModel(_repository: Repository = Repository(ApiManager()
         dob: String,
         gender: String,
         phone: String
-    ) {
+    )
+    {
         val name = Name()
         name.givenName = firstname
         name.familyName = lastname
@@ -122,17 +118,17 @@ class RegisterPatientViewModel(_repository: Repository = Repository(ApiManager()
         repository.registerPatient(patient)?.enqueue(object : Callback<Patient> {
             override fun onFailure(call: Call<Patient>, t: Throwable) {
 
-                responseString.postValue("Patient Was not Created")
+            dialog.postValue(false)
                 Timber.d(" t.localised message-----${t.localizedMessage} ")
                 Timber.d(" t.message-----${t.message} ")
             }
 
             override fun onResponse(call: Call<Patient>, response: Response<Patient>) {
                 if (response.code() == 201) {
-                    responseString.postValue("Patient Was Created with Code ${response.code()}")
+                    dialog.postValue(true)
                     Timber.d("Patient registration successful")
                 } else {
-                    responseString.postValue("Patient Was not Created with code ${response.code()} code ")
+                    dialog.postValue(false)
                 }
 
             }
