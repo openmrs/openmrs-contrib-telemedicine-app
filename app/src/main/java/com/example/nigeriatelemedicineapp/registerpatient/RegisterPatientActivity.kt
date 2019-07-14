@@ -34,6 +34,8 @@ class RegisterPatientActivity : AppCompatActivity() {
             Toast.makeText(this, " $newName ", Toast.LENGTH_LONG).show()
         }
 
+        viewModel.status.observe(this, Observer { handleStatus(it)})
+
         viewModel.responseString.observe(this, nameObserver)
 
         val idfObv = Observer<String> { idf ->
@@ -64,13 +66,45 @@ class RegisterPatientActivity : AppCompatActivity() {
         else if (radioGroup.checkedRadioButtonId==binding.female.id)
             gender="F"
 
-        viewModel.registerPatient(
-            binding.firstName.text.toString(),
-            binding.lastName.text.toString(),
-            binding.DOB.text.toString(),
-            gender.toString(),
-            binding.phoneNumber.text.toString()
-        )
+        checkNullability(gender)
     }
 
+    private fun checkNullability(gender:String?){
+          viewModel.checkNullValues(
+              binding.firstName.text.toString(),
+              binding.lastName.text.toString(),
+              binding.DOB.text.toString(),
+              gender.toString(),
+              binding.phoneNumber.text.toString()
+          )
+    }
+
+    private fun handleStatus(status: Status?) {
+        when (status) {
+
+            Status.EMPTY_FIRST_NAME -> {
+                binding.firstName.requestFocus()
+                binding.firstName.setError("Please enter your first name")}
+
+            Status.EMPTY_LAST_NAME ->{
+                binding.lastName.requestFocus()
+             binding.lastName.setError("Please enter your last name")}
+
+            Status.EMPTY_GENDER-> Toast.makeText(this,"Please select your gender",Toast.LENGTH_SHORT).show()
+
+            Status.EMPTY_PHONE->{
+                binding.phoneNumber.requestFocus()
+                binding.phoneNumber.setError("Please Enter your phone number")}
+
+            Status.EMPTY_DOB->{
+                binding.DOB.requestFocus()
+                binding.DOB.setError("Please enter your DOB")}
+
+            Status.SUCCESS-> startAnimations()
+        }
+    }
+
+    private fun startAnimations() {
+        
+    }
 }

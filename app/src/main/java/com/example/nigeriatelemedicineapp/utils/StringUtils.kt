@@ -17,5 +17,10 @@ class StringUtils {
             var check = s?.replace(" ".toRegex(), "")
             return(check == NULL_AS_STRING || check == "" || check == SPACE_CHAR)
         }
+
+        fun check(s: String?) : Boolean
+        {
+            return notNull(s) && !isBlank(s)
+        }
     }
 }
