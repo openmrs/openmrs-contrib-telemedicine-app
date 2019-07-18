@@ -15,6 +15,11 @@ import com.example.nigeriatelemedicineapp.dashboard.DashBoardActivity
 import com.example.nigeriatelemedicineapp.databinding.ActivityAppointmentFormBinding
 import android.app.Activity
 import android.view.inputmethod.InputMethodManager
+import android.net.NetworkInfo
+import android.content.Context.CONNECTIVITY_SERVICE
+import android.net.ConnectivityManager
+import android.content.Context
+import com.google.android.material.snackbar.Snackbar
 
 
 class RegisterPatientActivity : AppCompatActivity() {
@@ -36,11 +41,13 @@ class RegisterPatientActivity : AppCompatActivity() {
         viewModel.dialog.observe(this, Observer { showAptDialog(it) })
     }
 
-    private fun showAptDialog(it: Boolean?) {
-        if (it!!)
-            getSuccessDialog().show()
-        else
-            getFailureDialog().show()
+    private fun showAptDialog(it: Int?) {
+        when (it) {
+            201 -> getSuccessDialog().show()
+            400 -> getFailureDialog(getString(R.string.FailureDialogText400)).show()
+            500 -> getFailureDialog(getString(R.string.FailureDialogText500)).show()
+            else -> getFailureDialog(getString(R.string.FailureDialogText000)).show()
+        }
     }
 
     fun setUpUI() {
@@ -63,7 +70,11 @@ class RegisterPatientActivity : AppCompatActivity() {
         else if (radioGroup.checkedRadioButtonId == binding.female.id)
             gender = "F"
 
+        if(checkInternetConnection())
         checkNullability(gender)
+
+        else
+            Snackbar.make(binding.root,"No Internet Connection",Snackbar.LENGTH_LONG).show()
     }
 
     private fun checkNullability(gender: String?) {
@@ -107,9 +118,7 @@ class RegisterPatientActivity : AppCompatActivity() {
 
     fun hideKeyboard(activity: Activity = this) {
         val imm = activity.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
-        //Find the currently focused view, so we can grab the correct window token from it.
         var view = activity.currentFocus
-        //If no view currently has focus, create a new one, just so we can grab a window token from it
         if (view == null) {
             view = View(activity)
         }
@@ -136,15 +145,23 @@ class RegisterPatientActivity : AppCompatActivity() {
         return builder.create()
     }
 
-    fun getFailureDialog(): AlertDialog {
+    fun getFailureDialog(text: String): AlertDialog {
         val builder = AlertDialog.Builder(this)
         builder.setCancelable(false)
         builder.setTitle("Error")
-        builder.setMessage(R.string.FailureDialogText)
+        builder.setMessage(text)
         builder.setPositiveButton("back to dashboard") { dialog, which ->
             finish()
             startActivity(Intent(this, DashBoardActivity::class.java))
         }
         return builder.create()
+    }
+
+    fun checkInternetConnection() : Boolean
+    {
+        val cm = applicationContext.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val nInfo = cm.activeNetworkInfo
+        val connected = nInfo != null && nInfo.isAvailable && nInfo.isConnected
+        return connected
     }
 }

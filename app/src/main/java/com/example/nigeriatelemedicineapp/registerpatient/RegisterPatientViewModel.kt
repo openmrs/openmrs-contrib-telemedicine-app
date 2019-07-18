@@ -11,12 +11,6 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import timber.log.Timber
-import android.net.NetworkInfo
-import android.content.Context.CONNECTIVITY_SERVICE
-import androidx.core.content.ContextCompat.getSystemService
-import android.net.ConnectivityManager
-
-
 
 class RegisterPatientViewModel(_repository: Repository = Repository(ApiManager())) : ViewModel() {
 
@@ -26,8 +20,8 @@ class RegisterPatientViewModel(_repository: Repository = Repository(ApiManager()
         MutableLiveData<Status>()
     }
 
-    val dialog: MutableLiveData<Boolean> by lazy {
-        MutableLiveData<Boolean>()
+    val dialog: MutableLiveData<Int> by lazy {
+        MutableLiveData<Int>()
     }
 
     init {
@@ -66,7 +60,7 @@ class RegisterPatientViewModel(_repository: Repository = Repository(ApiManager()
             }
 
             override fun onFailure(call: Call<IdentifierList>, t: Throwable) {
-                dialog.postValue(false)
+                dialog.postValue(0)
             }
         })
     }
@@ -118,19 +112,24 @@ class RegisterPatientViewModel(_repository: Repository = Repository(ApiManager()
         repository.registerPatient(patient)?.enqueue(object : Callback<Patient> {
             override fun onFailure(call: Call<Patient>, t: Throwable) {
 
-            dialog.postValue(false)
-                Timber.d(" t.localised message-----${t.localizedMessage} ")
-                Timber.d(" t.message-----${t.message} ")
+             dialog.postValue(0)
+             Timber.d(" t.localised message-----${t.localizedMessage} ")
+             Timber.d(" t.message-----${t.message} ")
             }
 
             override fun onResponse(call: Call<Patient>, response: Response<Patient>) {
                 if (response.code() == 201) {
-                    dialog.postValue(true)
+                    dialog.postValue(201)
                     Timber.d("Patient registration successful")
-                } else {
-                    dialog.postValue(false)
+                } else if(response.code() >= 500) {
+                    dialog.postValue(500)
                 }
-
+                else if(response.code()>=400) {
+                    dialog.postValue(400)
+                }
+                else{
+                    dialog.postValue(0)
+                }
             }
 
 
