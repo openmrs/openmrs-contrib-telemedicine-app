@@ -105,6 +105,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:hint="First Name"
+                                android:inputType="textPersonName"
                                 android:textColor="@color/nigeria_green"
                                 />
                         </com.google.android.material.textfield.TextInputLayout>
@@ -127,6 +128,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:hint="Last Name"
+                                android:inputType="textPersonName"
                                 android:textColor="@color/nigeria_green"
                                 />
                         </com.google.android.material.textfield.TextInputLayout>
@@ -184,6 +186,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:hint="DOB (yyyy-mm-dd)"
+                                android:inputType="date"
                                 android:textColor="@color/nigeria_green"
                                 />
                         </com.google.android.material.textfield.TextInputLayout>
@@ -203,6 +206,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="Phone number"
+                            android:inputType="phone"
                             android:textColor="@color/nigeria_green"
                             />
                     </com.google.android.material.textfield.TextInputLayout>
@@ -224,10 +228,38 @@
                         app:layout_constraintBottom_toBottomOf="@id/CardView"
                         />
                 </LinearLayout>
-
-
             </ScrollView>
         </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/loadingtext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="@string/loadingScreenText"
+            android:textColor="@color/nigeria_green"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:fontFamily="serif"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/appBarLayout"
+            app:layout_constraintVertical_bias="0.40"
+            android:visibility="gone"
+            />
+
+        <ProgressBar
+            android:id="@+id/progressbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/appBarLayout"
+            android:visibility="gone"
+            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
