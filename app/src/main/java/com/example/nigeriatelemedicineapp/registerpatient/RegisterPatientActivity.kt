@@ -112,6 +112,11 @@ class RegisterPatientActivity : AppCompatActivity() {
                 binding.DOB.setError("Please enter your DOB")
             }
 
+            Status.INCORRECT_DATE_FORMAT -> {
+                binding.DOB.requestFocus()
+                binding.DOB.setError("Please enter your DOB in the specified format")
+            }
+
             Status.SUCCESS -> startAnimations()
         }
     }

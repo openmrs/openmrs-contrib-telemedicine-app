@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import com.example.nigeriatelemedicineapp.api.ApiManager
 import com.example.nigeriatelemedicineapp.api.models.*
 import com.example.nigeriatelemedicineapp.repository.Repository
+import com.example.nigeriatelemedicineapp.utils.DateUtlis
 import com.example.nigeriatelemedicineapp.utils.StringUtils
 import retrofit2.Call
 import retrofit2.Callback
@@ -37,12 +38,13 @@ class RegisterPatientViewModel(_repository: Repository = Repository(ApiManager()
             status.value = Status.EMPTY_GENDER
         } else if (!StringUtils.check(dob)) {
             status.value = Status.EMPTY_DOB
+        } else if (!DateUtlis.checkDateFormat(dob)) {
+            status.value = Status.INCORRECT_DATE_FORMAT
         } else if (!StringUtils.check(phone)) {
             status.value = Status.EMPTY_PHONE
-        }
-        else{
-            status.value= Status.SUCCESS
-            registerPatient(firstname,lastname,dob,gender,phone)
+        } else {
+            status.value = Status.SUCCESS
+            registerPatient(firstname, lastname, DateUtlis.getCorrectDateFormat(dob), gender, phone)
         }
     }
 
