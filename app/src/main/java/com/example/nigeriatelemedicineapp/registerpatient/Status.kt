@@ -6,6 +6,7 @@ enum class Status {
     EMPTY_LAST_NAME,
     EMPTY_GENDER,
     EMPTY_DOB,
+    INCORRECT_DATE_FORMAT,
     EMPTY_PHONE,
     SUCCESS
 }
