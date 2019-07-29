@@ -9,4 +9,19 @@
     <string name="title_activity_splash_screen">SplashScreen</string>
     <string name="appointmentFormheading">Appointment Form</string>
     <string name="dashboard_actionbar">Dashboard</string>
+    <string name="loadingScreenText">Registration in progress</string>
+    <string name="SuccessDialogText">You have been successfully registered.
+        We will try to call you as early as possible</string>
+    <string name="FailureDialogText500">Server Side Error: Registration unsuccessful</string>
+    <string name="FailureDialogText400">Please check format of your details: Registration unsuccessful</string>
+    <string name="FailureDialogText000">Unknown Error Occurred: Registration unsuccessful</string>
+    <string name="title_activity_help">HelpActivity</string>
+    <string name="HelpscrrenQ1">What does the app do for you?</string>
+    <string name="HelpScreenAns1">The Nigeria Telemedicine App helps you avail telemedicine health services just by making a few clicks. Once you\'re successfully registered with us please keep your mobile phone switched On so that the doctor can contact you as early as possible. Please enter correct details of yours so that we can reach you as early as possible.</string>
+    <string name="HelpScreenQ2">How to use our health services?</string>
+    <string name="Ans2">You can avail our health services very easily by following these simple 3 steps</string>
+    <string name="STEP1">STEP #1 - Click on the \"consult a doctor\" icon that is present just beside the \"help\" icon on the DashBoard that is your previous screen.</string>
+    <string name="STEP2">STEP #2 - A registration form opens up. Fill all the specified fields with correct details. Please make sure to add your dob in the specified format which is the dd/mm/yyyy format.</string>
+    <string name="STEP3">STEP #3 - After filling all your details correctly press the green register button. Wait for a few seconds. If a successful registration alert appears then you have successfully registered with us and if an un-successful message appears that means you have to start again from step 1.</string>
+
 </resources>
