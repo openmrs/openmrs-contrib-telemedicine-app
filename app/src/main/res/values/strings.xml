@@ -17,7 +17,7 @@
     <string name="FailureDialogText000">Unknown Error Occurred: Registration unsuccessful</string>
     <string name="title_activity_help">HelpActivity</string>
     <string name="HelpscrrenQ1">What does the app do for you?</string>
-    <string name="HelpScreenAns1">The Nigeria Telemedicine App helps you avail telemedicine health services just by making a few clicks. Once you\'re successfully registered with us please keep your mobile phone switched On so that the doctor can contact you as early as possible. Please enter correct details of yours so that we can reach you as early as possible.</string>
+    <string name="HelpScreenAns1">The Nigeria Telemedicine App helps you use telemedicine health services just by making a few clicks. Once you\'re successfully registered with us please keep your mobile phone switched on, so that the doctor can contact you as early as possible. Please enter correct details of yours so that we can reach you as early as possible.</string>
     <string name="HelpScreenQ2">How to use our health services?</string>
     <string name="Ans2">You can use our health services very easily by following these simple 3 steps</string>
     <string name="STEP1">STEP #1 - Click on the \"consult a doctor\" icon that is present just beside the \"help\" icon on the DashBoard that is your previous screen.</string>
