@@ -139,6 +139,7 @@
                 />
 
             <TextView
+                android:id="@+id/help"
                 android:layout_width="95dp"
                 android:layout_height="47dp"
                 android:layout_alignParentStart="true"

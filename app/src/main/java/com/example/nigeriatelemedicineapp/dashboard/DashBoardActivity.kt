@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProviders
 import com.example.nigeriatelemedicineapp.registerpatient.RegisterPatientActivity
 import com.example.nigeriatelemedicineapp.R
 import com.example.nigeriatelemedicineapp.databinding.DashboardActivityBinding
+import com.example.nigeriatelemedicineapp.help.HelpActivity
 import kotlinx.android.synthetic.main.dashboard_activity.*
 
 class DashBoardActivity : AppCompatActivity() {
@@ -29,12 +30,16 @@ class DashBoardActivity : AppCompatActivity() {
     private fun setupUI()
     {
         binding.registerPatient.setOnClickListener { startActivity(it) }
+        binding.help.setOnClickListener{startActivity(it)}
     }
 
     private fun startActivity(it: View?) {
         when(it){
               binding.registerPatient->
                   startActivity(Intent(this, RegisterPatientActivity::class.java))
+
+            binding.help->
+                startActivity(Intent(this, HelpActivity::class.java))
         }
 
     }
