@@ -9,6 +9,6 @@ import retrofit2.http.POST
 
 interface RegisterPatientService{
 
-    @POST(ApiEndpoints.PATIENT)
+    @POST(ApiEndpoints.REGISTER)
     fun registerPatient(@Body patient: Patient): Call<Patient>
 }

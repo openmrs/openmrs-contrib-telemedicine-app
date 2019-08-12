@@ -2,6 +2,7 @@ package com.example.nigeriatelemedicineapp.api
 
 object ApiEndpoints{
 
-     const val PATIENT = "patient"
+     const val REGISTER = "register"
+     const val FETCH = "fetch"
 
 }
