@@ -185,7 +185,7 @@
                                 android:id="@+id/DOB"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:hint="DOB (yyyy-mm-dd)"
+                                android:hint="DOB (dd-mm-yyyy)"
                                 android:inputType="date"
                                 android:textColor="@color/nigeria_green"
                                 />
