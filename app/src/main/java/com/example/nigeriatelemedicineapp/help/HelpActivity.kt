@@ -20,6 +20,8 @@ class HelpActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
         val actionBar = supportActionBar
         actionBar!!.title = "Help"
+        actionBar.setDisplayHomeAsUpEnabled(true)
+        actionBar.setDisplayShowHomeEnabled(true)
         viewModel = ViewModelProviders.of(this).get(HelpViewModel::class.java)
 
     }
