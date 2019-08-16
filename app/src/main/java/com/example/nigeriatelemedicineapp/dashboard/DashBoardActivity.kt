@@ -30,7 +30,7 @@ class DashBoardActivity : AppCompatActivity() {
     private fun setupUI()
     {
         binding.registerPatient.setOnClickListener { startActivity(it) }
-        binding.help.setOnClickListener{startActivity(it)}
+        binding.about.setOnClickListener{startActivity(it)}
     }
 
     private fun startActivity(it: View?) {
@@ -38,7 +38,7 @@ class DashBoardActivity : AppCompatActivity() {
               binding.registerPatient->
                   startActivity(Intent(this, RegisterPatientActivity::class.java))
 
-            binding.help->
+            binding.about->
                 startActivity(Intent(this, HelpActivity::class.java))
         }
 
