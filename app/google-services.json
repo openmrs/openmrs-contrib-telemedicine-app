@@ -1,34 +1,34 @@
 {
   "project_info": {
-    "project_number": "230871848230",
-    "firebase_url": "https://nigeria-telemedicine-app.firebaseio.com",
-    "project_id": "nigeria-telemedicine-app",
-    "storage_bucket": "nigeria-telemedicine-app.appspot.com"
+    "project_number": "193734738496",
+    "firebase_url": "https://nigeria-telemedicine-app-8478f.firebaseio.com",
+    "project_id": "nigeria-telemedicine-app-8478f",
+    "storage_bucket": "nigeria-telemedicine-app-8478f.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:230871848230:android:3fe7efe07edeaddf",
+        "mobilesdk_app_id": "1:193734738496:android:2824c192c12a0c4a",
         "android_client_info": {
-          "package_name": "com.example.nigeriatelemedicineapp"
+          "package_name": "org.fortitudo.nigeriatelemedicineapp"
         }
       },
       "oauth_client": [
         {
-          "client_id": "230871848230-lg11u90gor6540mietakargsp90f0dvs.apps.googleusercontent.com",
+          "client_id": "193734738496-2q9p3b1im2inb84am0ac592m2s7i67k3.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCJYQxMWlYy9RvKiRxSychZdWUAweF15n0"
+          "current_key": "AIzaSyCgZv4hAJF4KA39cswyrXNuNWwTguZ6CR0"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "230871848230-lg11u90gor6540mietakargsp90f0dvs.apps.googleusercontent.com",
+              "client_id": "193734738496-2q9p3b1im2inb84am0ac592m2s7i67k3.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

@@ -15,7 +15,7 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
     defaultConfig {
-        applicationId "com.example.nigeriatelemedicineapp"
+        applicationId "org.fortitudo.nigeriatelemedicineapp"
         minSdkVersion 16
         android.defaultConfig.vectorDrawables.useSupportLibrary = true
         targetSdkVersion 28
@@ -50,7 +50,7 @@ dependencies {
 
     implementation "androidx.lifecycle:lifecycle-extensions:$rootProject.archLifecycleVersion"
     annotationProcessor "androidx.lifecycle:lifecycle-compiler:$rootProject.archLifecycleVersion"
-    //retrofit & gson
+//    retrofit & gson
     implementation 'com.google.code.gson:gson:2.8.5'
     implementation 'com.squareup.retrofit2:retrofit:2.5.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
