@@ -5,34 +5,31 @@ import com.example.nigeriatelemedicineapp.api.services.RegisterPatientService
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.create
 
-class ApiManager {
 
-    private val baseUrl = BaseUrl()
-    private val BASE_URL = baseUrl.getUrl()
-    private val username: String = "admin"
-    private val password: String = "Admin123"
-    private var retrofit: Retrofit? = null
-    private var patientApi: RegisterPatientService? = null
-    private var identifierApi: GetIdentifierService? = null
+class ApiManager(baseUrl: String = BaseUrl().getUrl(),_okHttpClient: OkHttpClient = OkHttpInterceptor().getClient()) {
 
+    private var BASE_URL : String
+    var retrofit: Retrofit? = null
+    var patientApi: RegisterPatientService? = null
+    var identifierApi: GetIdentifierService? = null
+    var okHttpClient : OkHttpClient
 
     init {
+        okHttpClient= _okHttpClient
+        BASE_URL=baseUrl
         createService()
     }
 
     fun createService() {
-        val OkHttpClient = OkHttpInterceptor().getClient(username, password)
 
         retrofit = Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
-            .client(OkHttpClient)
+            .client(okHttpClient)
             .build()
 
         setUpServices()
-
 
     }
 
@@ -41,18 +38,15 @@ class ApiManager {
         identifierApi = createApi(GetIdentifierService::class.java)
     }
 
-    private fun <T> createApi(clazz: Class<T>): T? {
+    fun <T> createApi(clazz: Class<T>): T? {
         return retrofit?.create(clazz)
     }
 
-
-    fun getIdentifierApi(): GetIdentifierService? {
+    fun getsIdentifierApi(): GetIdentifierService? {
         return identifierApi
     }
 
     fun getRegisterPatientApi(): RegisterPatientService? {
         return patientApi
     }
-
-
 }

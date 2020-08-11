@@ -6,6 +6,8 @@ apply plugin: 'kotlin-android-extensions'
 
 apply plugin: 'kotlin-kapt'
 
+apply plugin: 'io.fabric'
+
 android {
     compileSdkVersion 28
     compileOptions {
@@ -14,7 +16,7 @@ android {
     }
     defaultConfig {
         applicationId "com.example.nigeriatelemedicineapp"
-        minSdkVersion 14
+        minSdkVersion 16
         android.defaultConfig.vectorDrawables.useSupportLibrary = true
         targetSdkVersion 28
         versionCode 1
@@ -42,7 +44,7 @@ dependencies {
     implementation 'androidx.core:core-ktx:1.0.2'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     implementation 'com.google.android.material:material:1.0.0'
-    testImplementation 'junit:junit:4.12'
+
     androidTestImplementation 'androidx.test:runner:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
 
@@ -55,7 +57,18 @@ dependencies {
     //okHttp3
     implementation 'com.squareup.okhttp3:logging-interceptor:3.4.1'
     implementation 'com.squareup.okhttp3:okhttp:3.4.1'
+    //firebase
+    implementation 'com.google.firebase:firebase-core:17.0.1'
+    //fabric
+    implementation 'com.google.firebase:firebase-core:17.0.1'
+    implementation 'com.crashlytics.sdk.android:crashlytics:2.10.1'
 
     //timber
     implementation 'com.jakewharton.timber:timber:4.7.1'
+    testImplementation(
+           "io.mockk:mockk:1.9.3",
+            'junit:junit:4.12',
+            'androidx.arch.core:core-testing:2.0.1'
+    )
 }
+apply plugin: 'com.google.gms.google-services'

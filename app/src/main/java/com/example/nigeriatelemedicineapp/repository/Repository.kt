@@ -5,7 +5,7 @@ import com.example.nigeriatelemedicineapp.api.models.IdentifierList
 import com.example.nigeriatelemedicineapp.api.models.Patient
 import retrofit2.Call
 
-class Repository(apiManager: ApiManager ){
+public class Repository(apiManager: ApiManager){
 
  private var apiManagerInstance: ApiManager
     init {
@@ -14,7 +14,7 @@ class Repository(apiManager: ApiManager ){
 
     fun getIdentifier() : Call<IdentifierList>?
     {
-        return apiManagerInstance.getIdentifierApi()?.getIdentifier()
+        return apiManagerInstance.getsIdentifierApi()?.getIdentifier()
     }
 
     fun registerPatient(patient: Patient) : Call<Patient>?

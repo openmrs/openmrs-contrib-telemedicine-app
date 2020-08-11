@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "230871848230",
+    "firebase_url": "https://nigeria-telemedicine-app.firebaseio.com",
+    "project_id": "nigeria-telemedicine-app",
+    "storage_bucket": "nigeria-telemedicine-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:230871848230:android:3fe7efe07edeaddf",
+        "android_client_info": {
+          "package_name": "com.example.nigeriatelemedicineapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "230871848230-lg11u90gor6540mietakargsp90f0dvs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJYQxMWlYy9RvKiRxSychZdWUAweF15n0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "230871848230-lg11u90gor6540mietakargsp90f0dvs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

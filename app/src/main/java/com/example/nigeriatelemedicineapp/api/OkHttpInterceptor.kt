@@ -7,10 +7,12 @@ import okhttp3.logging.HttpLoggingInterceptor
 class OkHttpInterceptor {
 
     private val httpClient = OkHttpClient.Builder()
+    val username: String? = "telemedtest3"
+    val password : String? = "Asdfg123"
    init {
 
    }
-    fun getClient(username: String?, password: String?) : OkHttpClient
+    fun getClient() : OkHttpClient
     {
         if (username != null && password != null) {
             val credentials = "$username:$password"
